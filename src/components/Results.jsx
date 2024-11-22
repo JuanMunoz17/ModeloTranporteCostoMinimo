@@ -42,16 +42,23 @@ function Results({ allocation, steps }) {
 
   return (
     <div className="w-full bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mt-4">
-      <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Resultado Final</h2>
+      <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+        Resultado Final
+      </h2>
 
       {/* Tabla con los resultados */}
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-max border border-gray-300">
+      <div className="overflow-x-auto mt-4">
+        <table className="table-auto w-full border border-gray-300">
           <thead>
             <tr>
-              <th className="px-4 py-2 border border-gray-300 bg-gray-100 text-center">Planta / Almacén</th>
+              <th className="px-4 py-2 border border-gray-300 bg-gray-100 text-center">
+                Planta / Almacén
+              </th>
               {allocation[0].map((_, colIndex) => (
-                <th key={colIndex} className="px-4 py-2 border border-gray-300 bg-gray-100 text-center">
+                <th
+                  key={colIndex}
+                  className="px-4 py-2 border border-gray-300 bg-gray-100 text-center"
+                >
                   Almacén {colIndex + 1}
                 </th>
               ))}
@@ -64,7 +71,10 @@ function Results({ allocation, steps }) {
                   Planta {rowIndex + 1}
                 </td>
                 {row.map((value, colIndex) => (
-                  <td key={colIndex} className="px-4 py-2 border border-gray-300 text-center">
+                  <td
+                    key={colIndex}
+                    className="px-4 py-2 border border-gray-300 text-center"
+                  >
                     {value}
                   </td>
                 ))}
@@ -76,36 +86,48 @@ function Results({ allocation, steps }) {
 
       {/* Explicación del resultado */}
       <div className="mt-4 p-4 bg-gray-100 border border-gray-300 rounded">
-        <h3 className="text-lg font-bold text-gray-800">Explicación del Resultado</h3>
+        <h3 className="text-lg font-bold text-gray-800">
+          Explicación del Resultado
+        </h3>
         <p className="text-gray-700 mt-2">
-          El modelo de transporte ha asignado las cantidades optimizadas desde cada{" "}
-          <strong>Planta</strong> hacia cada <strong>Almacén</strong>, minimizando los costos de transporte
-          o respetando las restricciones de suministro y demanda. En la tabla anterior:
+          El modelo de transporte ha asignado las cantidades optimizadas desde
+          cada <strong>Planta</strong> hacia cada <strong>Almacén</strong>,
+          minimizando los costos de transporte o respetando las restricciones de
+          suministro y demanda. En la tabla anterior:
         </p>
         <ul className="list-disc pl-6 text-gray-700 mt-2">
           <li>
-            Las filas representan las <strong>Plantas</strong>, que son los puntos de origen del suministro.
+            Las filas representan las <strong>Plantas</strong>, que son los
+            puntos de origen del suministro.
           </li>
           <li>
-            Las columnas representan los <strong>Almacenes</strong>, que son los destinos de la demanda.
+            Las columnas representan los <strong>Almacenes</strong>, que son los
+            destinos de la demanda.
           </li>
           <li>
-            Los valores en cada celda indican la cantidad asignada de la <strong>Planta</strong> al{" "}
-            <strong>Almacén</strong>.
+            Los valores en cada celda indican la cantidad asignada de la{" "}
+            <strong>Planta</strong> al <strong>Almacén</strong>.
           </li>
         </ul>
         <p className="text-gray-700 mt-2">
-          Este resultado muestra la distribución más eficiente posible según los parámetros ingresados, cumpliendo
-          con las restricciones de capacidad y demanda definidas.
+          Este resultado muestra la distribución más eficiente posible según los
+          parámetros ingresados, cumpliendo con las restricciones de capacidad y
+          demanda definidas.
         </p>
       </div>
 
       {/* Botones para exportar */}
-      <div className="mt-4 flex space-x-4">
-        <button onClick={exportToPDF} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <div className="mt-4 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+        <button
+          onClick={exportToPDF}
+          className="w-full sm:w-auto bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
           Exportar a PDF
         </button>
-        <button onClick={exportToExcel} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        <button
+          onClick={exportToExcel}
+          className="w-full sm:w-auto bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+        >
           Exportar a Excel
         </button>
       </div>
